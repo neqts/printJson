@@ -148,14 +148,9 @@ const paragrafChangeLean = function () {
   li.style.fontStyle = 'Italic';
 };
 
-const obj = {
-  table: [],
-};
-
 const paragrafSave = function () {
-  obj.table.push({ text: outputText });
-  const json = JSON.stringify(obj);
-  const fs = require('fs');
+  var json = JSON.stringify(outputText);
+  var fs = require('fs');
   fs.writeFile('myjsonfile.json', json, 'utf8', callback);
 };
 
