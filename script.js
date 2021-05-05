@@ -148,20 +148,18 @@ const paragrafChangeLean = function () {
   li.style.fontStyle = 'Italic';
 };
 
-const paragrafSave = function () {};
+const obj = {
+  table: [],
+};
+
+const paragrafSave = function () {
+  obj.table.push({ text: outputText });
+  const json = JSON.stringify(obj);
+  const fs = require('fs');
+  fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+};
 
 bullet.addEventListener('click', paragraChangePoint);
 lean.addEventListener('click', paragrafChangeLean);
 bold.addEventListener('click', paragrafChangeBold);
 save.addEventListener('click', paragrafSave);
-
-const obj = {
-  table: [],
-};
-
-obj.table.push({ id: 1, square: 2 });
-
-const json = JSON.stringify(obj);
-
-const fs = require('fs');
-fs.writeFile('myjsonfile.json', json, 'utf8', callback);
