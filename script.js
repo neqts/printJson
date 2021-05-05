@@ -1,8 +1,5 @@
 'use strict';
 
-const Compile = require('./compile.json');
-console.log(Compile);
-
 document.body.style.cssText = `
 margin:0px;
 boxing-size:border-box;
@@ -157,3 +154,14 @@ bullet.addEventListener('click', paragraChangePoint);
 lean.addEventListener('click', paragrafChangeLean);
 bold.addEventListener('click', paragrafChangeBold);
 save.addEventListener('click', paragrafSave);
+
+const obj = {
+  table: [],
+};
+
+obj.table.push({ id: 1, square: 2 });
+
+const json = JSON.stringify(obj);
+
+const fs = require('fs');
+fs.writeFile('myjsonfile.json', json, 'utf8', callback);
